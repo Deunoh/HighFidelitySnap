@@ -26,7 +26,7 @@ class Image
     #[Vich\UploadableField(mapping: 'images', fileNameProperty: 'link', size: 'imageSize')]
     #[Assert\File(
         maxSize: '15M',
-        mimeTypes: ['image/jpeg', 'image/png'],
+        mimeTypes: ['image/jpeg', 'image/png', 'image/jpg'],
         mimeTypesMessage: 'Please upload a valid image (JPEG, PNG)'
     )]
     private ?File $imageFile = null;
