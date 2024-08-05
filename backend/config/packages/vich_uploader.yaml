@@ -1,8 +1,19 @@
 vich_uploader:
     db_driver: orm
 
-    #mappings:
-    #    products:
-    #        uri_prefix: /images/products
-    #        upload_destination: '%kernel.project_dir%/public/images/products'
-    #        namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+    metadata:
+        type: attribute
+
+    mappings:
+       images:
+           uri_prefix: /images/upload
+           upload_destination: '%kernel.project_dir%/public/images/upload'
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+           # le fichier doit-il être injecté dans l'entité téléchargeable lorsqu'il est chargé depuis le magasin de données. L'objet sera une instance de Symfony\Component\HttpFoundation\File\File.
+           inject_on_load: false
+           #le fichier doit-il être supprimé lorsqu'un nouveau fichier est téléchargé ;
+           delete_on_update: true
+           # le fichier doit-il être supprimé lorsque l'entité est supprimée ;
+           delete_on_remove: true
+
